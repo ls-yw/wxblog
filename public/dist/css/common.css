@@ -1,0 +1,20 @@
+#alertMsg{
+    top : 30px;
+    position: absolute;
+    margin: 30px auto;
+    z-index: 9999;
+    width: 90%;
+    left: 5%;
+}
+.green{
+    color:green;
+}
+.gray{
+    color: gray;
+}
+.red{
+    color: red;
+}
+.hidden{
+    display: none;
+}

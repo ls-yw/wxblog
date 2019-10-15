@@ -1,0 +1,71 @@
+<!-- DataTables -->
+<link rel="stylesheet" href="/dist/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css">
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title"><?=$title?></h3>
+                <div class="pull-right box-tools">
+                    <a href="/admin/article/setArticle.html" class="btn btn-default"><i class="fa fa-plus"></i></a>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th width="20">ID</th>
+                        <th>文章标题</th>
+                        <th>文章分类</th>
+                        <th>缩略图</th>
+                        <th>标签</th>
+                        <th width="50">浏览量</th>
+                        <th width="30">排序</th>
+                        <th width="30">发布</th>
+                        <th>创建时间</th>
+                        <th>更新时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php if(!empty($data)):?>
+                        <?php foreach($data as $val):?>
+                            <tr>
+                                <td><?=$val['id']?></td>
+                                <td><?=$val['title']?></td>
+                                <td><?=$category[$val['category_id']] ?? ''?></td>
+                                <td><?php if(!empty($val['img_url']))echo '<img src="'.$val['img_url'].'" width="60"/>';?></td>
+                                <td><?=$val['tags']?></td>
+                                <td><?=$val['clicks']?></td>
+                                <td><?=$val['sort']?></td>
+                                <td><?=(1 == $val['is_push'] ? '<span class="green">是</span>' : '<span class="gray">否</span>')?></td>
+                                <td><?=$val['create_at']?></td>
+                                <td><?=$val['update_at']?></td>
+                                <td><a href="/admin/article/setArticle.html?id=<?=$val['id']?>" class="btn btn-warning"><i class="fa fa-edit"></i></a></td>
+                            </tr>
+                        <?php endforeach;?>
+                    <?php endif;?>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+</div>
+<!-- /.row -->
+<script src="/dist/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/dist/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script>
+    $(function () {
+        $('#example2').DataTable({
+            'paging'      : true,
+            'lengthChange': false,
+            'searching'   : false,
+            'ordering'    : true,
+            'info'        : true,
+            'autoWidth'   : false
+        })
+    })
+</script>

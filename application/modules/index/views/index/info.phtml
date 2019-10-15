@@ -1,0 +1,80 @@
+<article>
+    <h1 class="t_nav"><span>您现在的位置是：首页 > <?=$article['title']?></span><a href="/" class="n1">网站首页</a></h1>
+    <div class="infos">
+        <div class="newsview">
+            <h3 class="news_title"><?=$article['title']?></h3>
+            <div class="news_author"><span class="au02"><?=\woodlsy\phalcon\library\Helper::now('Y-m-d', strtotime($article['create_at']))?></span><span class="au03">共<b><?=$article['clicks']?></b>人围观</span></div>
+            <?php if (!empty($article['desc'])):?>
+            <div class="news_about"><strong>简介</strong><?=$article['desc']?></div>
+            <?php endif;?>
+            <div class="news_infos"> <?=$article['content']?> </div>
+            <div class="tags"><?php if (!empty($tags)):foreach ($tags as $tag):?><a href="javascript:;" ><?=$tag?></a> &nbsp; <?php endforeach;endif;?></div>
+        </div>
+        <div class="share"> </div>
+<!--        <div class="nextinfo">-->
+<!--            <p>上一篇：<a href=""></a></p>-->
+<!--            <p>下一篇：<a href=""></a></p>-->
+<!--        </div>-->
+<!--        <div class="otherlink">-->
+<!--            <h2>相关文章</h2>-->
+<!--            <ul>-->
+<!--                <li><a href="1" title="1》">1</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        <div class="news_pl">-->
+<!--            <h2>文章评论</h2>-->
+<!--            <ul>-->
+<!--                <div class="gbko"> </div>-->
+<!--            </ul>-->
+<!--        </div>-->
+    </div>
+    <div class="sidebar">
+        <div class="search">
+            <form action="/index/index/search.html" method="get" name="searchform" id="searchform">
+                <input name="keyword" id="keyword" class="input_text" value="请输入关键字" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
+                <button class="input_submit" type="submit">搜索</button>
+            </form>
+        </div>
+        <!--        <div class="lmnav">-->
+        <!--            <h2 class="hometitle">栏目导航</h2>-->
+        <!--            <ul class="navbor">-->
+        <!--                <li><a href="#">关于我</a></li>-->
+        <!--                <li><a href="share.html">模板分享</a>-->
+        <!--                    <ul>-->
+        <!--                        <li><a href="list.html">个人博客模板</a></li>-->
+        <!--                    </ul>-->
+        <!--                </li>-->
+        <!--                <li><a href="list.html">学无止境</a>-->
+        <!--                    <ul>-->
+        <!--                        <li><a href="#">HTML5+CSS3</a></li>-->
+        <!--                    </ul>-->
+        <!--                </li>-->
+        <!--                <li><a href="#">慢生活</a></li>-->
+        <!--            </ul>-->
+        <!--        </div>-->
+        <div class="paihang">
+            <h2 class="hometitle">点击排行</h2>
+            <ul>
+                <?php if (!empty($clickArticles)):foreach ($clickArticles as $val):?>
+                    <li><b><a href="/index/article/info.html?id=<?=$val['id']?>" target="_blank"><?=$val['title']?></a></b>
+                        <p><i><?php if (!empty($val['img_url']))echo '<img src="'.$val['img_url'].'">';?></i><?=$val['desc']?></p>
+                    </li>
+                <?php endforeach;endif;?>
+            </ul>
+        </div>
+    </div>
+</article>
+<script src="/statics/js/nav.js"></script>
+<script type="text/javascript">
+    jQuery.noConflict();
+    jQuery(function() {
+        var elm = jQuery('#left_flow2');
+        var startPos = jQuery(elm).offset().top;
+        jQuery.event.add(window, "scroll", function() {
+            var p = jQuery(window).scrollTop();
+            jQuery(elm).css('position',((p) > startPos) ? 'fixed' : '');
+
+            jQuery(elm).css('top',((p) > startPos) ? '0' : '');
+        });
+    });
+</script>

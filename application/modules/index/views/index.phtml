@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><?=$title ?? $systemConfig['title']?></title>
+    <meta name="keywords" content="<?=$keywords ?? $systemConfig['keywords']?>" />
+    <meta name="description" content="<?=$description ?? $systemConfig['description']?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/statics/css/base.css" rel="stylesheet">
+    <link href="/statics/css/index.css" rel="stylesheet">
+    <link href="/statics/css/m.css" rel="stylesheet">
+    <link rel="stylesheet" href="/dist/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/statics/js/modernizr.js"></script>
+    <![endif]-->
+    <script>
+        window.onload = function ()
+        {
+            var oH2 = document.getElementsByTagName("h2")[0];
+            var oUl = document.getElementsByTagName("ul")[0];
+            oH2.onclick = function ()
+            {
+                var style = oUl.style;
+                style.display = style.display == "block" ? "none" : "block";
+                oH2.className = style.display == "block" ? "open" : ""
+            }
+        }
+    </script>
+</head>
+<body>
+<header>
+    <div class="tophead">
+        <div class="logo"><a href="/"><?=$systemConfig['title'] ?? ''?></a></div>
+        <div id="mnav">
+            <h2><span class="navicon"></span></h2>
+            <ul>
+                <li><a href="/">网站首页</a></li>
+                <li><a href="/index/index/list.html">文章列表</a></li>
+            </ul>
+        </div>
+        <nav class="topnav" id="topnav">
+            <ul>
+                <li><a href="/">网站首页</a></li>
+                <li><a href="/index/index/list.html">文章列表</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<?=$this->getContent()?>
+<footer>
+    <p>Copyright © <a href="/"><?=$systemConfig['title'] ?? ''?></a> All Rights Reserved. <a href="/">浙ICP备18055911号-1</a></p>
+</footer>
+<script src="/statics/js/nav.js"></script>
+</body>
+</html>
