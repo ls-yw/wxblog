@@ -64,7 +64,7 @@ class AdminBaseController extends BasicController
             return;
         }
         if (empty($this->admin)) {
-            $this->response->redirect('admin/login/index.html');
+            $this->response->redirect('yadmin/login/index.html');
         }
     }
 
