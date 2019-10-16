@@ -6,7 +6,7 @@
         <div class="box-header">
           <h3 class="box-title"><?=$title?></h3>
           <div class="pull-right box-tools">
-            <a href="/admin/article/setCategory.html" class="btn btn-default"><i class="fa fa-plus"></i></a>
+            <a href="/yadmin/article/setCategory.html" class="btn btn-default"><i class="fa fa-plus"></i></a>
             </div>
         </div>
         <!-- /.box-header -->
@@ -31,7 +31,7 @@
               <td><?=empty($val['pid']) ? '顶级' : $category[$val['pid']]?></td>
               <td><?=$val['create_at']?></td>
               <td><?=$val['update_at']?></td>
-              <td><a href="/admin/article/setCategory.html?id=<?=$val['id']?>" class="btn btn-warning"><i class="fa fa-edit"></i></a></td>
+              <td><a href="/yadmin/article/setCategory.html?id=<?=$val['id']?>" class="btn btn-warning"><i class="fa fa-edit"></i></a></td>
             </tr>
             <?php endforeach;?>
             <?php endif;?>

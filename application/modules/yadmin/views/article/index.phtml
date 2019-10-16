@@ -6,7 +6,7 @@
             <div class="box-header">
                 <h3 class="box-title"><?=$title?></h3>
                 <div class="pull-right box-tools">
-                    <a href="/admin/article/setArticle.html" class="btn btn-default"><i class="fa fa-plus"></i></a>
+                    <a href="/yadmin/article/setArticle.html" class="btn btn-default"><i class="fa fa-plus"></i></a>
                 </div>
             </div>
             <!-- /.box-header -->
@@ -41,7 +41,7 @@
                                 <td><?=(1 == $val['is_push'] ? '<span class="green">是</span>' : '<span class="gray">否</span>')?></td>
                                 <td><?=$val['create_at']?></td>
                                 <td><?=$val['update_at']?></td>
-                                <td><a href="/admin/article/setArticle.html?id=<?=$val['id']?>" class="btn btn-warning"><i class="fa fa-edit"></i></a></td>
+                                <td><a href="/yadmin/article/setArticle.html?id=<?=$val['id']?>" class="btn btn-warning"><i class="fa fa-edit"></i></a></td>
                             </tr>
                         <?php endforeach;?>
                     <?php endif;?>
