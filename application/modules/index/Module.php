@@ -25,7 +25,7 @@ class Module implements ModuleDefinitionInterface
             function () {
                 $dispatcher = new Dispatcher();
 
-                $dispatcher->setDefaultNamespace("application\\modules\\index\\Controllers");
+                $dispatcher->setDefaultNamespace("application\\modules\\index\\controllers");
 
                 return $dispatcher;
             }
