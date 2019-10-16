@@ -1,6 +1,6 @@
 {
     "require": {
-        "woodlsy/phalcon": "^0.1",
+        "woodlsy/phalcon": "^V0.1",
         "woodlsy/upload": "^0.2.2"
     }
 }
