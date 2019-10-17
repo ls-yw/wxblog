@@ -35,6 +35,7 @@ class IndexController extends BaseController
         $key = md5($id.'_'.$ip);
         if (!Redis::getInstance()->exists($key)) {
             (new ArticleLogic())->addArticleClick($id);
+            $article['clicks']++;
             Redis::getInstance()->setex($key, 120, 1);
         }
 
