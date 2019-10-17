@@ -1,1 +1,19 @@
-﻿CKEDITOR.plugins.setLang("div","sr-latn",{IdInputLabel:"Id",advisoryTitleInputLabel:"Advisory naslov",cssClassInputLabel:"Stylesheet klase",edit:"Edit Div",inlineStyleInputLabel:"Inline Style",langDirLTRLabel:"S leva na desno (LTR)",langDirLabel:"Smer jezika",langDirRTLLabel:"S desna na levo (RTL)",languageCodeInputLabel:" Language Code",remove:"Remove Div",styleSelectLabel:"Stil",title:"Create Div Container",toolbar:"Create Div Container"});
+/*
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+*/
+CKEDITOR.plugins.setLang( 'div', 'sr-latn', {
+	IdInputLabel: 'Id',
+	advisoryTitleInputLabel: 'Savet',
+	cssClassInputLabel: 'CSS klase',
+	edit: 'DIV uredjivač',
+	inlineStyleInputLabel: 'Inline Stil',
+	langDirLTRLabel: 'S leva na desno (LTR)',
+	langDirLabel: 'Smer jezika',
+	langDirRTLLabel: 'S desna na levo (RTL)',
+	languageCodeInputLabel: 'Kod jezika',
+	remove: 'Ukloni Div',
+	styleSelectLabel: 'Stil',
+	title: 'Kreiranje DIV spremišta',
+	toolbar: 'Kreiranje DIV spremišta'
+} );

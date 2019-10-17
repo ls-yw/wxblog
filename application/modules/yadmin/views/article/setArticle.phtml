@@ -6,7 +6,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="/admin/article/setArticle.html">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="/yadmin/article/setArticle.html">
                 <input type="hidden" name="id" value="<?=$data['id'] ?? 0?>">
                 <div class="box-body">
                     <div class="form-group">
@@ -36,7 +36,7 @@
                         <label for="inputEmail3" class="col-sm-2 control-label">文章内容</label>
                         <div class="col-sm-10">
                             <textarea id="editor1" name="content" rows="10" cols="80">
-                                                    <?=$data['content'] ?? ''?>
+                                                    <?=htmlspecialchars_decode($data['content']) ?? ''?>
                             </textarea>
                         </div>
                     </div>
@@ -83,6 +83,7 @@
   </div>
   <!-- /.row -->
 <!-- CK Editor -->
+<!--<script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>-->
 <script src="/dist/plugins/ckeditor/ckeditor.js"></script>
   <script>
     $(function () {
@@ -92,7 +93,8 @@
             return false;
         }
       });
-      CKEDITOR.replace('editor1');
+        // CKEDITOR.plugins.addExternal('codesnippet','/plugins/codesnippet/');
+        CKEDITOR.replace('editor1',{extraPlugins:'codesnippet'});
         <?php if (isset($alertError) && !empty($alertError)):?>
         alertMsg('error', '<?=$alertError?>');
         <?php endif;?>

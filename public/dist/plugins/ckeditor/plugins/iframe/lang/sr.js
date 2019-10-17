@@ -1,1 +1,11 @@
-﻿CKEDITOR.plugins.setLang("iframe","sr",{border:"Show frame border",noUrl:"Please type the iframe URL",scrolling:"Enable scrollbars",title:"IFrame Properties",toolbar:"IFrame"});
+/*
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+*/
+CKEDITOR.plugins.setLang( 'iframe', 'sr', {
+	border: 'Прикажи границу оквира',
+	noUrl: 'Унесите  iframe УРЛ',
+	scrolling: 'Укљзчи померајуће траке.',
+	title: 'IFrame подешавање',
+	toolbar: 'IFrame'
+} );

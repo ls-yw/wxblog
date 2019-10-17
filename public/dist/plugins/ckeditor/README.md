@@ -1,82 +1,142 @@
-CKEditor 4 - Releases
-=====================
+# CKEditor 4 - Smart WYSIWYG HTML editor [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20CKEditor%204%20on%20GitHub&url=https%3A%2F%2Fgithub.com%2Fckeditor%2Fckeditor4)
 
-## Releases Code
+[![npm version](https://badge.fury.io/js/ckeditor.svg)](https://www.npmjs.com/package/ckeditor)
+[![GitHub tag](https://img.shields.io/github/tag/ckeditor/ckeditor4.svg)](https://github.com/ckeditor/ckeditor4)
 
-This repository contains the official release versions of [CKEditor](http://ckeditor.com).
+[![Build Status](https://travis-ci.org/ckeditor/ckeditor4.svg?branch=major)](https://travis-ci.org/ckeditor/ckeditor4)
+[![Dependencies](https://img.shields.io/david/ckeditor/ckeditor4.svg)](https://david-dm.org/ckeditor/ckeditor4)
+[![Dev dependencies](https://img.shields.io/david/dev/ckeditor/ckeditor4.svg)](https://david-dm.org/ckeditor/ckeditor4?type=dev)
 
-There are four versions for each release &mdash; `standard-all`, `basic`, `standard`, and `full`.
-They differ in the number of plugins that are compiled into the main `ckeditor.js` file as well as the toolbar configuration.
+[![Join newsletter](https://img.shields.io/badge/join-newsletter-00cc99.svg)](http://eepurl.com/c3zRPr)
+[![Follow Twitter](https://img.shields.io/badge/follow-twitter-00cc99.svg)](https://twitter.com/ckeditor)
 
-See the [comparison](http://ckeditor.com/presets) of the `basic`, `standard`, and `full` installation presets for more details.
+A highly configurable WYSIWYG HTML editor with hundreds of features, from creating rich text content with captioned images, videos, tables, media embeds, emoji or mentions to pasting from Word and Google Docs and drag&drop image upload.
 
-The `standard-all` build includes all official CKSource plugins with only those from the `standard` installation preset compiled into the `ckeditor.js` file and enabled in the configuration. 
+Supports a broad range of browsers, including legacy ones.
 
-All versions available in this repository were built using [CKBuilder](http://ckeditor.com/builder), so they are optimized and ready to be used in a production environment.
+![CKEditor 4 screenshot](https://c.cksource.com/a/1/img/npm/ckeditor4.png)
 
-## Documentation
+## Getting started
 
-Developer documentation for CKEditor is available online at: <http://docs.ckeditor.com>.
+### Using [npm package](https://www.npmjs.com/package/ckeditor)
 
-## Installation
+```bash
+npm install --save ckeditor
+```
 
-### Git clone
+Use it on your website:
 
-To install one of the available releases, just clone this repository and switch to the respective branch (see next section):
+```html
+<div id="editor">
+    <p>This is the editor content.</p>
+</div>
+<script src="./node_modules/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'editor' );
+</script> 
+```
 
-	git clone -b <release branch> git://github.com/ckeditor/ckeditor-releases.git
-	
-### Git submodule
+### Using [CDN](https://cdn.ckeditor.com/#ckeditor4)
 
-If you are using git for your project and you want to integrate CKEditor, we recommend to add this repository as a
-[submodule](http://git-scm.com/book/en/Git-Tools-Submodules).
+Load the CKEditor 4 script from CDN:
 
-	git submodule add -b <release branch> git://github.com/ckeditor/ckeditor-releases.git <clone dir>
-	git commit -m "Added CKEditor submodule in <clone dir> directory."
+```html
+<div id="editor">
+    <p>This is the editor content.</p>
+</div>
+<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'editor' );
+</script>
+```
 
-### Using Package Managers
+### Integrating with Angular and React
 
-See the [Installing CKEditor with Package Managers](http://docs.ckeditor.com/#!/guide/dev_package_managers) article for more details about installing CKEditor with [Bower](http://bower.io/), [Composer](https://getcomposer.org/) and [npm](https://www.npmjs.com/).
+Refer to official usage guides for the [`ckeditor4-angular`](https://www.npmjs.com/package/ckeditor4-angular#usage) and [`ckeditor4-react`](https://www.npmjs.com/package/ckeditor4-react#usage) packages.
 
-## Repository Structure
+### Manual download
 
-### Branches
+Visit the [CKEditor 4 download section](https://ckeditor.com/ckeditor-4/download/) on the [CKEditor website](https://ckeditor.com/ckeditor-4/) to download ready-to-use CKEditor 4 packages or to create a customized CKEditor 4 build.
+
+## Features
+
+* Over 500 plugins in the [Add-ons Repository](https://ckeditor.com/cke4/addons).
+* Pasting from Microsoft Word, Excel and Google Docs.
+* Drag&drop image uploads.
+* Media embeds to insert videos, tweets, maps, slideshows.
+* Powerful clipboard integration.
+* Content quality control with Advanced Content Filter.
+* Extensible widget system.
+* Custom table selection.
+* Accessibility conforming to WCAG and Section 508.
+* Over 70 localizations available with full RTL support.
+
+## Browser support
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome (Android) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
+| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| IE8, IE9, IE10, IE11, Edge| latest version| latest version| latest version| latest version| latest version| latest version
+
+Find out more in the [Browser Compatibility guide](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_browsers.html#officially-supported-browsers).
+
+---
+
+## Working with the `ckeditor4` repostiory
+
+**Attention**: The code in this repository should be used locally and for development purposes only. We do not recommend using it in a production environment because the user experience will be very limited.
+
+### Code installation
+
+There is no special installation procedure to install the development code.
+Simply clone it to any local directory and you are set.
+
+### Available branches
 
 This repository contains the following branches:
 
-  - `master` and `latest` &ndash; the latest release of the `standard-all` preset (including betas).
-  - `stable` &ndash; the latest stable release of the `standard-all` preset (non-beta).
-  - `A.B.x` (e.g. `4.3.x`) &ndash; the latest release of the `standard-all` preset in the `A.B` branch.
-  - `(basic|standard|full)/stable` &ndash; the latest stable release tag point (non-beta).
-  - `(basic|standard|full)/latest` &ndash; the latest release tag point (including betas).
-  - `(basic|standard|full)/A.B.x` (e.g. `basic/4.0.x`) &ndash; the latest releases in the `A.B` branch.
+  - **`master`** &ndash; Development of the upcoming minor release.
+  - **`major`** &ndash; Development of the upcoming major release.
+  - **`stable`** &ndash; Latest stable release tag point (non-beta).
+  - **`latest`** &ndash; Latest release tag point (including betas).
+  - **`release/A.B.x`** (e.g. `4.0.x`, `4.1.x`) &ndash; Release freeze, tests and tagging. Hotfixing.
 
-### Tags
+Note that both `master` and `major` are under heavy development. Their code did not pass the release testing phase, though, so it may be unstable.
 
-**Since version 4.3.3** this repository uses the following tag naming rules:
+Additionally, all releases have their respective tags in the following form: `4.4.0`, `4.4.1`, etc.
 
-  - `x.y.z` &ndash; contains the `standard-all` editor build, e.g. `4.3.3`, `4.4.0` etc.
-  - `(basic|standard|full)/x.y.z` &ndash; contains the editor build with a given preset, e.g. `basic/4.3.3`.
+### Samples
 
-The version numbers follow the [Semantic Versioning 2.0.0](http://semver.org/) scheme.
+The `samples/` folder contains some examples that can be used to test your installation. Visit [CKEditor 4 Examples](https://ckeditor.com/docs/ckeditor4/latest/examples/index.html) for plenty of samples showcasing numerous editor features, with source code readily available to view, copy and use in your own solution.
 
-Up to version **4.3.2** the tags were released in the following form `x.y[.z]/(basic|standard|full)`.
-For example: `4.0/basic`, `4.0.1/standard`. This convention was changed in CKEditor 4.3.3 to conform to the Semantic Versioning scheme.
+### Code structure
 
-## Checking Your Installation
+The development code contains the following main elements:
 
-The editor comes with a sample page that can be used to verify if the installation succeeded. Take a look at the `samples` directory.
+  - Main coding folders:
+    - `core/` &ndash; The core API of CKEditor 4. Alone, it does nothing, but it provides the entire JavaScript API that makes the magic happen.
+    - `plugins/` &ndash; Contains most of the plugins maintained by the CKEditor 4 core team.
+    - `skin/` &ndash; Contains the official default skin of CKEditor 4.
+    - `dev/` &ndash; Contains some developer tools.
+    - `tests/` &ndash; Contains the CKEditor 4 tests suite.
 
-To test your installation, just call the following page for your website:
+### Building a release
 
-	http://<your site>/<CKEditor installation path>/samples/index.html
+A release-optimized version of the development code can be easily created locally. The `dev/builder/build.sh` script can be used for that purpose:
 
-For example:
+	> ./dev/builder/build.sh
 
-	http://www.example.com/ckeditor/samples/index.html
+A "release-ready" working copy of your development code will be built in the new `dev/builder/release/` folder. An Internet connection is necessary to run the builder, for the first time at least.
+
+### Testing environment
+
+Read more on how to set up the environment and execute tests in the [CKEditor 4 Testing Environment](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_tests.html) guide.
+
+### Reporting issues
+
+Use the [CKEditor 4 GitHub issue page](https://github.com/ckeditor/ckeditor4/issues) to report bugs and feature requests.
 
 ### License
 
-Licensed under the GPL, LGPL, and MPL licenses, at your choice.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 
-Please check the `LICENSE.md` file for more information about the license.
+For licensing, see LICENSE.md or [https://ckeditor.com/legal/ckeditor-oss-license](https://ckeditor.com/legal/ckeditor-oss-license)
