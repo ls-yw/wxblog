@@ -4,6 +4,7 @@ namespace application\modules\index\controllers;
 
 use application\base\BaseController;
 use application\logic\ArticleLogic;
+use woodlsy\phalcon\library\Redis;
 
 class IndexController extends BaseController
 {
@@ -27,8 +28,15 @@ class IndexController extends BaseController
 
     public function infoAction()
     {
-        $id      = $this->get('id', 'int');
+        $id      = (int)$this->get('id', 'int');
         $article = (new ArticleLogic())->getArticleById($id);
+
+        $ip = $this->request->getClientAddress();
+        $key = md5($id.'_'.$ip);
+        if (!Redis::getInstance()->exists($key)) {
+            (new ArticleLogic())->addArticleClick($id);
+            Redis::getInstance()->setex($key, 120, 1);
+        }
 
         $tags = !empty($article['tags']) ? explode(',', $article['tags']) : '';
 

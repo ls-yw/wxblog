@@ -185,4 +185,15 @@ class ArticleLogic
     {
         return (new Article())->getCount(['is_deleted' => 0, 'title' => ['like', '%'.$keyword.'%']]);
     }
+
+    /**
+     * 增加阅读量
+     *
+     * @author yls
+     * @param int $id
+     */
+    public function addArticleClick(int $id)
+    {
+        (new Article())->updateData(['clicks' => 'clicks + 1'], ['id' => $id]);
+    }
 }
