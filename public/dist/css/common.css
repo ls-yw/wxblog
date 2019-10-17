@@ -21,3 +21,8 @@
 h1.t_nav span{
     float: none;
 }
+.infos code{
+    display: block;
+    padding: 0.5em;
+    background: #F0F0F0;
+}
