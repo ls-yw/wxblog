@@ -144,7 +144,7 @@ class ArticleLogic
     public function getArticle(int $page, int $size = 20, string $orderBy = 'id desc')
     {
         $offset = ($page - 1) * $size;
-        return (new Article())->getList(['is_deleted' => 0], $orderBy, $offset, $size);
+        return (new Article())->getList(['is_deleted' => 0, 'is_push' => 1], $orderBy, $offset, $size);
     }
 
     /**
