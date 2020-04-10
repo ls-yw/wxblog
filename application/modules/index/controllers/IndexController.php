@@ -35,6 +35,7 @@ class IndexController extends BaseController
         if (!in_array($id, $idArray)) {
             (new ArticleLogic())->addArticleClick($id);
             $article['clicks']++;
+            $idArray[] = $id;
             $this->cookies->set('articleClick', implode('|', $idArray), time() + 3600);
         }
 
