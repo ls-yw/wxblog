@@ -2,7 +2,6 @@
 return [
     'modules'    => [
         'index',
-        'yadmin'
     ],
     'csrf'       => false,
     'debug'      => false,

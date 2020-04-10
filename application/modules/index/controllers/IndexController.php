@@ -4,7 +4,6 @@ namespace application\modules\index\controllers;
 
 use application\base\BaseController;
 use application\logic\ArticleLogic;
-use woodlsy\phalcon\library\Redis;
 
 class IndexController extends BaseController
 {
@@ -31,12 +30,12 @@ class IndexController extends BaseController
         $id      = (int) $this->get('id', 'int');
         $article = (new ArticleLogic())->getArticleById($id);
 
-        $ip  = $this->request->getClientAddress();
-        $key = md5($id . '_' . $ip);
-        if (!Redis::getInstance()->exists($key)) {
+        $ids = $this->cookies->get('articleClick')->getValue();
+        $idArray = explode('|', $ids);
+        if (!in_array($id, $idArray)) {
             (new ArticleLogic())->addArticleClick($id);
             $article['clicks']++;
-            Redis::getInstance()->setex($key, 120, 1);
+            $this->cookies->set('articleClick', implode('|', $idArray), time() + 3600);
         }
 
         $tags = !empty($article['tags']) ? explode(',', $article['tags']) : '';

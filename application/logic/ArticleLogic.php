@@ -194,6 +194,6 @@ class ArticleLogic
      */
     public function addArticleClick(int $id)
     {
-        (new Article())->updateData(['clicks' => 'clicks + 1'], ['id' => $id]);
+        (new Article())->updateData(['clicks' => ['+', 1]], ['id' => $id]);
     }
 }
