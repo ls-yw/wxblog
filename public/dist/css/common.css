@@ -1,10 +1,5 @@
-#alertMsg{
-    top : 30px;
-    position: absolute;
-    margin: 30px auto;
-    z-index: 9999;
-    width: 90%;
-    left: 5%;
+body{
+    /*background: #f7f7f7;*/
 }
 .green{
     color:green;
@@ -18,11 +13,44 @@
 .hidden{
     display: none;
 }
-h1.t_nav span{
-    float: none;
+body .container{
+    background: #f7f7f7;
 }
-.infos code{
-    display: block;
-    padding: 0.5em;
-    background: #F0F0F0;
+
+#list ul li{
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+#list ul li .media-body{
+    color: #888;
+    font-size: 14px;
+}
+#list ul li .media-body h5{
+    color: #555;
+    font-size: 18px;
+    padding: 5px 0;
+}
+#list ul li .info{
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+}
+#list ul li .info .tag{
+    background: url("../img/newsbg01.png") no-repeat left center;
+    padding-left: 20px;
+    margin-right: 10px;
+}
+#list ul li .info .dtime{
+    background: url("../img/newsbg02.png") no-repeat left center;
+    padding-left: 20px;
+    margin-right: 10px;
+}
+#list ul li .info .viewnum{
+    background: url("../img/newsbg04.png") no-repeat left center;
+    padding-left: 20px;
+}
+#list ul li .info .read{
+    float: right;
 }

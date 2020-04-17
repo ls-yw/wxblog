@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12" id="list">
+                <ul class="list-unstyled">
+                    <?php if (!empty($articles)):foreach ($articles as $val):?>
+                        <li >
+                            <div class="media">
+                                <?php if(!empty($val['img_url'])):?><img src="<?=$val['img_url']?>" class="mr-3" alt="<?=$val['title']?>" width="160"><?php endif;?>
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"><?=$val['title']?></h5>
+                                    <?=$val['desc']?>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <span class="tag"><a href="javascript:;" title="python,scrapy">python,scrapy</a></span>
+                                <span class="dtime">2020-04-07</span>
+                                <span class="viewnum">浏览（14）</span>
+                                <span class="read"><a href="/index/index/info.html?id=6" class="green">阅读原文</a></span>
+                            </div>
+                        </li>
+                    <?php endforeach;endif;?>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-unstyled">
+                    <?php if (!empty($clickArticles)):foreach ($clickArticles as $val):?>
+                    <li class="media">
+                        <?php if(!empty($val['img_url'])):?><img src="<?=$val['img_url']?>" class="mr-3" alt="<?=$val['title']?>" width="80"><?php endif;?>
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1"><?=$val['title']?></h5>
+                            <?=$val['desc']?>
+                        </div>
+                    </li>
+                    <?php endforeach;endif;?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
