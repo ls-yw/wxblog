@@ -171,7 +171,7 @@ class ArticleLogic
         if (!empty($categoryId)) {
             $where['category_id'] = $categoryId;
         }
-        return (new Article())->getList(['is_deleted' => 0, 'is_push' => 1], $orderBy, $offset, $size);
+        return (new Article())->getList($where, $orderBy, $offset, $size);
     }
 
     /**
@@ -187,7 +187,7 @@ class ArticleLogic
         if (!empty($categoryId)) {
             $where['category_id'] = $categoryId;
         }
-        return (new Article())->getCount(['is_deleted' => 0]);
+        return (new Article())->getCount($where);
     }
 
     /**
