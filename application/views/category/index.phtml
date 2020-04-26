@@ -1,3 +1,12 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?=$systemConfig['host']?>">首页</a></li>
+        <?php if (isset($crumbs) && !empty($crumbs) && is_array($crumbs)):foreach ($crumbs as $val):?>
+            <li class="breadcrumb-item"><a <?=isset($val['url']) && !empty($val['url']) ? "href='{$val['url']}'" : ''?>><?=$val['name']?></a></li>
+        <?php endforeach;endif;?>
+        <li class="breadcrumb-item active" aria-current="page"><?=$title?></li>
+    </ol>
+</nav>
 <div class="row">
     <div class="col-md-8">
         <div class="row">

@@ -36,6 +36,28 @@ class ArticleLogic
     }
 
     /**
+     * 获取树形结构分类
+     *
+     * @author woodlsy
+     * @return array
+     */
+    public function getCategoryTree()
+    {
+        $cate = (new Category())->getAll(['is_deleted' => 0], ['id', 'name', 'pid'], 'pid asc');
+        $arr = [];
+        if (!empty($cate)){
+            foreach ($cate as $key => $value) {
+                if (0 === (int)$value['pid']) {
+                    $arr[$value['id']] = $value;
+                } else {
+                    $arr[$value['pid']]['children'][] = $value;
+                }
+            }
+        }
+        return $arr;
+    }
+
+    /**
      * 根据ID获取详情
      *
      * @author yls
@@ -136,14 +158,19 @@ class ArticleLogic
      * 获取文章列表
      *
      * @author yls
+     * @param int    $categoryId
      * @param int    $page
      * @param int    $size
      * @param string $orderBy
      * @return array|bool
      */
-    public function getArticle(int $page, int $size = 20, string $orderBy = 'id desc')
+    public function getArticle(int $categoryId, int $page, int $size = 20, string $orderBy = 'id desc')
     {
         $offset = ($page - 1) * $size;
+        $where = ['is_deleted' => 0, 'is_push' => 1];
+        if (!empty($categoryId)) {
+            $where['category_id'] = $categoryId;
+        }
         return (new Article())->getList(['is_deleted' => 0, 'is_push' => 1], $orderBy, $offset, $size);
     }
 
@@ -151,10 +178,15 @@ class ArticleLogic
      * 文章条数
      *
      * @author yls
+     * @param int $categoryId
      * @return array|int
      */
-    public function getArticleCount()
+    public function getArticleCount(int $categoryId)
     {
+        $where = ['is_deleted' => 0, 'is_push' => 1];
+        if (!empty($categoryId)) {
+            $where['category_id'] = $categoryId;
+        }
         return (new Article())->getCount(['is_deleted' => 0]);
     }
 

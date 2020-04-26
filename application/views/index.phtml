@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?=$description ?? $systemConfig['host_seo_description']?>">
     <meta name="keywords" content="<?=$keywords ?? $systemConfig['host_seo_keywords']?>">
-    <title><?=$title ?? $systemConfig['host_seo_name']?></title>
+    <title><?=$seoTitle ?? $systemConfig['host_seo_name']?></title>
     <link rel="icon" href="/favicon.ico">
     <link href="/dist/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/dist/css/common.css" rel="stylesheet">
     <script type="application/javascript" src="/dist/js/jquery.min.js"></script>
 </head>
 <body>
-
-<header>
-    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
-        <a class="navbar-brand" href="#"><?=$systemConfig['host_name']?></a>
+<div class="wrap">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+        <a class="navbar-brand logo" href="<?=$systemConfig['host']?>"><?=$systemConfig['host_name']?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,39 +25,39 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="<?=$systemConfig['host']?>">首页</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
+                <?php if (!empty($navCategory)):foreach ($navCategory as $val):?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link <?php if (isset($val['children']) && !empty($val['children']))echo 'dropdown-toggle'?>" href="<?php if (isset($val['children']) && !empty($val['children'])):echo '#';else:echo '/category/index.html?id='.$val['id'];endif;?>" <?php if (isset($val['children']) && !empty($val['children']))echo 'role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"'?>>
+                            <?=$val['name']?>
+                        </a>
+                        <?php if (isset($val['children']) && !empty($val['children'])):?>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <?php foreach ($val['children'] as $v):?>
+                                <a class="dropdown-item" href="/category/index.html?id=<?=$v['id']?>"><?=$v['name']?></a>
+                                <?php endforeach;?>
+                            </div>
+                        <?php endif;?>
+                    </li>
+                <?php endforeach;endif;?>
+
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <form class="form-inline my-2 my-lg-0" method="get" action="/category/search.html">
+                <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="输入要查找的内容" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
             </form>
         </div>
+        </div>
     </nav>
-</header>
 
-<div class="container">
-    <?=$this->getContent()?>
+    <div class="container main">
+        <?=$this->getContent()?>
+    </div>
+
+
 </div>
-
-<footer>
+<footer class="bg-dark">
     <div class="container">
         <div class="d-flex">
             <span class="mr-auto">Copyright &copy; 2009-2020 by <a href="<?=$systemConfig['host']?>"><?=$systemConfig['host_name']?></a>. <span class="d-none d-sm-inline">All Rights Reserved.</span></span>

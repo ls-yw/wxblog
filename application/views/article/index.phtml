@@ -1,0 +1,67 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?=$systemConfig['host']?>">首页</a></li>
+        <?php if (isset($crumbs) && !empty($crumbs) && is_array($crumbs)):foreach ($crumbs as $val):?>
+            <li class="breadcrumb-item"><a <?=isset($val['url']) && !empty($val['url']) ? "href='{$val['url']}'" : ''?>><?=$val['name']?></a></li>
+        <?php endforeach;endif;?>
+        <li class="breadcrumb-item active" aria-current="page"><?=$title?></li>
+    </ol>
+</nav>
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <h1 class="title"><?=$article['title']?></h1>
+                    <div class="shu">
+                        <span class="dtime"><?=substr($article['create_at'], 0, 10)?></span>
+                        <span class="viewnum">共<?=$article['clicks']?>人围观</span>
+                    </div>
+                    <div class="info">
+                        <?=$article['content']?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-12 right-click-list">
+                <ul class="list-unstyled">
+                    <?php if (!empty($clickArticles)):foreach ($clickArticles as $val):?>
+                        <li class="media">
+                            <?php if(!empty($val['img_url'])):?><img src="<?=$val['img_url']?>" class="mr-3" alt="<?=$val['title']?>" width="80"><?php endif;?>
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1"><a href="/article/index.html?id=<?=$val['id']?>"><?=$val['title']?></a></h5>
+                                <?=$val['desc']?>
+                            </div>
+                        </li>
+                    <?php endforeach;endif;?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <img src="" id="show-img">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('.content .info').on('click', 'img', function () {
+            var src = $(this).attr('src');
+            $('#imgModal .modal-body #show-img').attr('src', src);
+            $('#imgModal').modal('show')
+        })
+    });
+</script>
