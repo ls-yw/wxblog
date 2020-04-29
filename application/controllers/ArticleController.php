@@ -37,6 +37,8 @@ class ArticleController extends BaseController
             $this->view->clickArticles = (new ArticleLogic())->getArticle($article['category_id'], 1, 5, 'clicks desc');
             $this->view->title = $article['title'];
             $this->view->seoTitle = $article['title'];
+            $this->view->keywords = $article['tags'];
+            $this->view->description = $article['desc'];
             $this->view->crumbs = $crumbs;
             $this->view->article = $article;
         } catch (BlogException $e) {

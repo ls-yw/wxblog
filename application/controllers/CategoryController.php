@@ -19,6 +19,8 @@ class CategoryController extends BaseController
 
         $this->view->title = $category['name'];
         $this->view->seoTitle = $category['name'];
+        $this->view->keywords = $category['name'];
+        $this->view->description = $category['name'];
     }
 
     public function searchAction()
@@ -38,5 +40,7 @@ class CategoryController extends BaseController
         $this->view->crumbs = $crumbs;
         $this->view->title = '<span class="red">'.$keyword.'</span> 的结果';
         $this->view->seoTitle = '搜索'.$keyword.'的结果';
+        $this->view->keywords = '搜索'.$keyword.'的结果';
+        $this->view->description = '搜索'.$keyword.'的结果';
     }
 }
